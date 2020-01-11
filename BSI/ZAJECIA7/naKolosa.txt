@@ -1,0 +1,26 @@
+odpowiedzi zapisujemy w plik.txt
+1. Generowanie kluczy -> GPG
+gpg --full-genenerate-key -> zapisujemy wszstko w nowym folderze
+Realname: s15342
+Email: s15432@pjwstk.edu.pl
+Bez commenta
+haslo do klucza -> s15432
+
+2. Plik plik.txt podpisac w sposob cyfrowy
+gpg --detach-sign plik.txt 
+nastepnie podajemy haslo do klucza -> powstaje plik.txt.sig
+
+3. Ekspor klucza publicznego
+gpg --armor --export s15432@pjwstk.edu.pl > s15432_pubkey.asc
+
+4. Import Pana klucza publicznego MM
+gpg --receive-keys --keyserver pgp.mit.edu D063A379
+gpg --receive-keys --keyserver keys.gnupg.net D063A79
+
+5. kompresja -> plik.txt, plik.txt.sig, s15432_pubkey.asc -> s15432.tgz 
+6. zaszyfrowac plik s15432.tgz kluczem publicznym MM
+
+gpg --encrypt -r marek.miskiewicz@gmail.com s15432.tgz -> powstaje plik
+s15432.tgz.gpg
+
+podzial sieci na podsieci, reguly iptables, openssl, regula johntheripper 
