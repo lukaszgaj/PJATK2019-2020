@@ -16,8 +16,10 @@ gpg --armor --export s15432@pjwstk.edu.pl > s15432_pubkey.asc
 4. Import Pana klucza publicznego MM
 gpg --receive-keys --keyserver pgp.mit.edu D063A379
 gpg --receive-keys --keyserver keys.gnupg.net D063A79
+gpg --receive-keys --keyserver keys.gnupg.net 1032DFF0
 
 5. kompresja -> plik.txt, plik.txt.sig, s15432_pubkey.asc -> s15432.tgz 
+tar -cvz s15432.tgz plik.txt plik.txt.sig s15432_pubkey.asc
 6. zaszyfrowac plik s15432.tgz kluczem publicznym MM
 
 gpg --encrypt -r marek.miskiewicz@gmail.com s15432.tgz -> powstaje plik
